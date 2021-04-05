@@ -15,16 +15,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
-        if files.isEmpty {
+        guard let vc = NSApp.windows.first?.contentViewController else {
             return
         }
-        guard let vc = NSApp.windows.first?.contentViewController as? ViewController else {
-            return
-        }
-        
         NSApp.windows.first?.makeFirstResponder(vc)
         //NSApp.windows.first?.makeKeyAndOrderFront(self)
-        vc.play(file: files.first!)
     }
 
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
@@ -37,8 +32,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 
     func application(_ sender: NSApplication, openFile filename: String) -> Bool {
-        files = [String]()
-        files.append(filename)
+        guard let vc = NSApp.windows.first?.contentViewController as? ViewController else {
+            return false
+        }
+        vc.play(file: filename)
         return true
     }
     

@@ -78,6 +78,7 @@ class ViewController: NSViewController {
 
 
     func play(file: String) {
+        view.window?.title = String(file[file.index(after: file.lastIndex(of: "/")!)...])
         player.media = file
         player.state = .Playing
         
