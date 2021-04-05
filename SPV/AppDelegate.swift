@@ -18,10 +18,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if files.isEmpty {
             return
         }
-        guard let vc = NSApplication.shared.windows.first?.contentViewController as? ViewController else {
+        guard let vc = NSApp.windows.first?.contentViewController as? ViewController else {
             return
         }
+        
+        NSApp.windows.first?.makeFirstResponder(vc)
+        //NSApp.windows.first?.makeKeyAndOrderFront(self)
         vc.play(file: files.first!)
+    }
+
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+        return true
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -34,5 +41,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         files.append(filename)
         return true
     }
+    
 }
 

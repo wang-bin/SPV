@@ -195,3 +195,28 @@ class ViewController: NSViewController {
     }()
 }
 
+
+extension ViewController {
+    override var acceptsFirstResponder: Bool { true }
+    
+    override func keyDown(with event: NSEvent) {
+        interpretKeyEvents([event])
+        print("code: \(event.keyCode), char: \(String(describing: event.characters)), modifiers: \(event.modifierFlags)")
+        switch event.charactersIgnoringModifiers {
+        case " ":
+            player.state = player.state == .Paused ? .Playing : .Paused
+        case "q":
+            NSApp.terminate(nil)
+        default:
+            break
+        }
+    }
+    
+    override func moveLeft(_ sender: Any?) {
+        _ = player.seek(player.position - 10000, callback: nil)
+    }
+    
+    override func moveRight(_ sender: Any?) {
+        _ = player.seek(player.position + 10000, callback: nil)
+    }
+}
