@@ -17,12 +17,13 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setGlobalOption(name: "videoout.hdr", value: 1)
         videoView = MTLVideoView(player: player)
         view.addSubview(videoView)
         videoView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
-        
+
         view.addSubview(posView)
         view.addSubview(playSlider)
         view.addSubview(durationView)
@@ -46,7 +47,7 @@ class ViewController: NSViewController {
             make.bottom.equalTo(playSlider.snp.top)
         }
         // Do any additional setup after loading the view.
-        
+
         /*
         player.media = "https://devimages.apple.com.edgekey.net/streaming/examples/bipbop_4x3/gear1/prog_index.m3u8"
         player.prepare(from: 1000, complete: {
@@ -59,13 +60,13 @@ class ViewController: NSViewController {
             return true
         })
         player.state = .Playing*/
-        
+
         let gesture = NSClickGestureRecognizer(target: self, action: #selector(onClick))
         videoView.addGestureRecognizer(gesture)
-        
+
         initPlayer()
     }
-    
+
     override func viewWillDisappear() {
         player.state = .Stopped
     }
@@ -80,16 +81,23 @@ class ViewController: NSViewController {
     func play(file: String) {
         view.window?.title = String(file[file.index(after: file.lastIndex(of: "/")!)...])
         player.media = file
-        player.state = .Playing
-        
-        resetUi()
-        playTimer?.invalidate()
-        playTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { (timer) in
-            self.syncUi()
-        })
     }
-    
+
     private func initPlayer() {
+        player.currentMediaChanged({ [weak self] in
+            guard let self = self else { return }
+            print("++++++++++currentMediaChanged: \(self.player.media)+++++++")
+            let player = self.player
+            player.waitFor(.Stopped)
+            player.state = .Playing
+
+            self.resetUi()
+            self.playTimer?.invalidate()
+            self.playTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { (timer) in
+                self.syncUi()
+            })
+        })
+
         player.onStateChanged { (state) in
             print(".....State changed to \(state)....")
             DispatchQueue.main.async {
@@ -103,13 +111,13 @@ class ViewController: NSViewController {
             }
         }
     }
-    
+
     private func resetUi() {
         playSlider.maxValue = 0
         playSlider.doubleValue = 0
         posView.stringValue = Int64(0).timeStringMs()
     }
-    
+
     private func syncUi() {
         posView.stringValue = player.position.timeStringMs()
         if playSlider.maxValue == 0 {
@@ -117,9 +125,9 @@ class ViewController: NSViewController {
             durationView.stringValue = player.mediaInfo.duration.timeStringMs()
         }
         playSlider.doubleValue = Double(player.position)
-        
+
     }
-    
+
     private func updateUi(state: State) {
         switch state {
         case .Playing:
@@ -128,11 +136,11 @@ class ViewController: NSViewController {
             playBtn.title = ">"
         }
     }
-    
+
     @objc func posChangeByUi(_ slider: NSSlider) {
         _ = player.seek(Int64(slider.doubleValue), flags: .FromStart, callback: nil)
     }
-    
+
     @objc func onPlayBtn(_ btn: NSButton) {
         if player.state == .Playing {
             player.state = .Paused
@@ -140,14 +148,14 @@ class ViewController: NSViewController {
             player.state = .Playing
         }
     }
-    
+
     @objc func onClick() {
         playSlider.isHidden = !playSlider.isHidden
         posView.isHidden = !posView.isHidden
         durationView.isHidden = !durationView.isHidden
         playBtn.isHidden = !playBtn.isHidden
     }
-    
+
     lazy private var playSlider : NSSlider = {
         let slider = NSSlider()
         slider.target = self
@@ -155,7 +163,7 @@ class ViewController: NSViewController {
         slider.action = #selector(posChangeByUi(_:))
         return slider
     }()
-    
+
     private func newTimeLabel() -> NSTextField {
         let view = NSTextField()
         view.alignment = .right
@@ -174,13 +182,13 @@ class ViewController: NSViewController {
         view.alignment = .right
         return view
     }()
-    
+
     private lazy var durationView : NSTextField = {
         let view = newTimeLabel()
         view.alignment = .left
         return view
     }()
-    
+
     private lazy var playBtn : NSButton = {
         let btn = NSButton()
         btn.title = ">"
@@ -199,7 +207,7 @@ class ViewController: NSViewController {
 
 extension ViewController {
     override var acceptsFirstResponder: Bool { true }
-    
+
     override func keyDown(with event: NSEvent) {
         interpretKeyEvents([event])
         print("code: \(event.keyCode), char: \(String(describing: event.characters)), modifiers: \(event.modifierFlags)")
@@ -212,11 +220,11 @@ extension ViewController {
             break
         }
     }
-    
+
     override func moveLeft(_ sender: Any?) {
         _ = player.seek(player.position - 10000, callback: nil)
     }
-    
+
     override func moveRight(_ sender: Any?) {
         _ = player.seek(player.position + 10000, callback: nil)
     }

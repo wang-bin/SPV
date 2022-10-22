@@ -46,5 +46,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return true
     }
     
+    @IBAction func openDocument(_ sender: AnyObject) {
+        guard let vc = NSApp.windows.first?.contentViewController as? ViewController else {
+            return
+        }
+        let panel = NSOpenPanel()
+        panel.title = "Choose Media File"
+        panel.canCreateDirectories = false
+        panel.canChooseFiles = true
+        panel.canChooseDirectories = false
+        panel.allowsMultipleSelection = true
+        if panel.runModal() == .OK {
+            for url in panel.urls {
+                NSDocumentController.shared.noteNewRecentDocumentURL(url)
+            }
+            vc.play(file: panel.url!.path)
+        }
+    }
 }
 

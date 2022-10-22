@@ -21,10 +21,29 @@ class MTLVideoView: MTKView {
         }
         self.player = player
         createRenderer(device: defaultDevice)
+
+        registerForDraggedTypes([.fileURL, .URL])
     }
 
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    override func draggingEntered(_ sender: NSDraggingInfo) -> NSDragOperation {
+        return .copy
+    }
+
+    override func prepareForDragOperation(_ sender: NSDraggingInfo) -> Bool {
+        return true
+    }
+
+    override func performDragOperation(_ sender: NSDraggingInfo) -> Bool {
+        let pb = sender.draggingPasteboard
+        if let urls = pb.readObjects(forClasses: [NSURL.self]) as? [URL] {
+            player.media = urls.first!.path
+            return true
+        }
+        return false
     }
 
     func createRenderer(device: MTLDevice){
@@ -43,9 +62,6 @@ class MTLVideoView: MTKView {
 
         player.videoDecoders = ["VT:copy=0", "FFmpeg"]
 
-        player.currentMediaChanged({
-            print("++++++++++currentMediaChanged: \(self.player.media)+++++++")
-        })
         player.setTimeout(0, callback: { timeout in
             print("timeout detected \(timeout)!!!!")
             return true
@@ -55,7 +71,6 @@ class MTLVideoView: MTKView {
             return true
         }
         setGlobalOption(name: "videoout.clear_on_stop", value: 1)
-        
     }
 
 }
