@@ -4,7 +4,7 @@
 //
 //  Created by WangBin on 2021/4/4.
 //
-
+import AppKit
 import Cocoa
 import SnapKit
 
@@ -56,6 +56,11 @@ class ViewController: NSViewController {
         hdrText.snp.makeConstraints { make in
             make.centerY.equalTo(hdrBtn)
             make.right.equalTo(hdrBtn.snp.left).offset(-4)
+        }
+        
+        if #available(macOS 10.15, *) {
+            hdrBtn.isHidden = NSScreen.main?.maximumPotentialExtendedDynamicRangeColorComponentValue ?? 1.0 <= 1.0
+            hdrText.isHidden = hdrBtn.isHidden
         }
         // Do any additional setup after loading the view.
 
@@ -226,6 +231,7 @@ class ViewController: NSViewController {
         return view
     }()
 
+    // TODO: for 10.5~10.14 https://github.com/iluuu1994/ITSwitch
     private lazy var hdrBtn : NSSwitch = {
         let btn = NSSwitch()
         //btn.state = .off
