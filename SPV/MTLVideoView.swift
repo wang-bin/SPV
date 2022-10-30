@@ -13,6 +13,16 @@ class MTLVideoView: MTKView {
     private var cmdQueue : MTLCommandQueue!
     private var player : Player!
 
+    var hdr : Bool = false {
+        didSet {
+            if hdr {
+                player.set(colorSpace: .Unknown, vid: self)
+            } else {
+                player.set(colorSpace: .BT709, vid: self)
+            }
+        }
+    }
+
     init(player : Player) {
         super.init(frame: .zero, device: MTLCreateSystemDefaultDevice())
         // Make sure we are on a device that can run metal!

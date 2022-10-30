@@ -17,7 +17,7 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setGlobalOption(name: "videoout.hdr", value: 1)
+        setGlobalOption(name: "profiler.gpu", value: 1)
         videoView = MTLVideoView(player: player)
         view.addSubview(videoView)
         videoView.snp.makeConstraints { (make) in
@@ -28,6 +28,8 @@ class ViewController: NSViewController {
         view.addSubview(playSlider)
         view.addSubview(durationView)
         view.addSubview(playBtn)
+        view.addSubview(hdrText)
+        view.addSubview(hdrBtn)
         posView.snp.makeConstraints { (make) in
             make.right.equalTo(playSlider.snp.left).offset(-4)
             make.centerY.equalTo(playSlider)
@@ -45,6 +47,15 @@ class ViewController: NSViewController {
         playBtn.snp.makeConstraints { (make) in
             make.centerX.equalTo(playSlider)
             make.bottom.equalTo(playSlider.snp.top)
+        }
+
+        hdrBtn.snp.makeConstraints { make in
+            make.top.equalTo(playBtn.snp.top)
+            make.left.equalTo(playSlider.snp.right)
+        }
+        hdrText.snp.makeConstraints { make in
+            make.centerY.equalTo(hdrBtn)
+            make.right.equalTo(hdrBtn.snp.left).offset(-4)
         }
         // Do any additional setup after loading the view.
 
@@ -149,11 +160,17 @@ class ViewController: NSViewController {
         }
     }
 
+    @objc func onHdrBtn(_ btn: NSSwitch) {
+        videoView.hdr = btn.state == .on
+    }
+
     @objc func onClick() {
         playSlider.isHidden = !playSlider.isHidden
         posView.isHidden = !posView.isHidden
         durationView.isHidden = !durationView.isHidden
         playBtn.isHidden = !playBtn.isHidden
+        hdrBtn.isHidden = !hdrBtn.isHidden
+        hdrText.isHidden = !hdrText.isHidden
     }
 
     lazy private var playSlider : NSSlider = {
@@ -200,6 +217,19 @@ class ViewController: NSViewController {
         btn.isBordered = false
         btn.wantsLayer = true
         btn.layer?.backgroundColor = NSColor.clear.cgColor*/
+        return btn
+    }()
+
+    private lazy var hdrText : NSTextField = {
+        let view = newTimeLabel()
+        view.stringValue = "HDR"
+        return view
+    }()
+
+    private lazy var hdrBtn : NSSwitch = {
+        let btn = NSSwitch()
+        //btn.state = .off
+        btn.action = #selector(onHdrBtn(_:))
         return btn
     }()
 }
