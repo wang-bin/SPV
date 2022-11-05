@@ -6,6 +6,38 @@
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
     <key>CFBundleDocumentTypes</key>
 	<array>
+        <dict>
+            <key>CFBundleTypeExtensions</key>
+            <array>
+                <string>braw</string>
+                <string>braw2</string>
+                <string>sidecar</string>
+            </array>
+            <key>CFBundleTypeIconFile</key>
+            <string>braw</string>
+            <key>CFBundleTypeMIMETypes</key>
+            <array>
+                <string>movie/x-braw</string>
+            </array>
+            <key>CFBundleTypeName</key>
+            <string>Blackmagic Design Raw Movie</string>
+            <key>CFBundleTypeRole</key>
+            <string>Viewer</string>
+            <key>LSHandlerRank</key>
+            <string>Owner</string>
+            <key>LSItemContentTypes</key>
+            <array>
+                <string>com.blackmagic-design.braw-movie</string>
+                <string>com.blackmagic-design.braw2-movie</string>
+                <string>com.blackmagic-design.braw-sidecar</string>
+            </array>
+            <key>LSTypeIsPackage</key>
+            <integer>0</integer>
+            <key>NSDocumentClass</key>
+            <string>NSDocument</string>
+            <key>NSIsRelatedItemType</key>
+            <true/>
+        </dict>
 		<dict>
 			<key>CFBundleTypeExtensions</key>
 			<array>

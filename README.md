@@ -1,8 +1,12 @@
 # SPV
+
+[Download](https://sourceforge.net/projects/mdk-sdk/files/app/SPV.app.tar.xz/download)
+
 Swift Video Player for macOS
 
-- High performance. Better than mpv, vlc and maybe any other players except QuickTime
-- VP9 hardware decoding on macOS 11+
+- High performance
+- HDR display
+- Blackmagic RAW support
 - Metal Accelerated
 - [Cross platform playback core](https://github.com/wang-bin/mdk-sdk)
 
