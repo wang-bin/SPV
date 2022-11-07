@@ -61,7 +61,7 @@ class MTLVideoView: MTKView {
         delegate = self
         player.addRenderTarget(self, commandQueue: cmdQueue)
 
-        enableSetNeedsDisplay = true
+        enableSetNeedsDisplay = false
         if enableSetNeedsDisplay {
             player.setRenderCallback { [weak self] in
                 DispatchQueue.main.async {
