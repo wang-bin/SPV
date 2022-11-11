@@ -58,11 +58,8 @@ class ViewController: NSViewController {
             make.centerY.equalTo(hdrBtn)
             make.right.equalTo(hdrBtn.snp.left).offset(-4)
         }
-        
-        if #available(macOS 10.15, *) {
-            hdrBtn.isHidden = NSScreen.main?.maximumPotentialExtendedDynamicRangeColorComponentValue ?? 1.0 <= 1.0
-            hdrText.isHidden = hdrBtn.isHidden
-        }
+
+        updateHdr(NSScreen.main!)
         // Do any additional setup after loading the view.
 
         /*
@@ -98,6 +95,14 @@ class ViewController: NSViewController {
     func play(file: String) {
         view.window?.title = String(file[file.index(after: file.lastIndex(of: "/")!)...])
         player.media = file
+    }
+
+    func updateHdr(_ screen: NSScreen) {
+        if #available(macOS 10.15, *) {
+            hdrBtn.isEnabled = screen.maximumPotentialExtendedDynamicRangeColorComponentValue > 1.0
+            hdrText.isEnabled = hdrBtn.isEnabled
+        }
+        videoView.hdr = hdrBtn.state == .on && hdrBtn.isEnabled
     }
 
     private func initPlayer() {
@@ -175,8 +180,8 @@ class ViewController: NSViewController {
         posView.isHidden = !posView.isHidden
         durationView.isHidden = !durationView.isHidden
         playBtn.isHidden = !playBtn.isHidden
-        hdrBtn.isHidden = !hdrBtn.isHidden
-        hdrText.isHidden = !hdrText.isHidden
+        hdrBtn.isHidden = playBtn.isHidden
+        hdrText.isHidden = playBtn.isHidden
     }
 
     lazy private var playSlider : NSSlider = {
