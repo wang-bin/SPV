@@ -56,7 +56,7 @@ class ViewController: NSViewController {
         }
         hdrText.snp.makeConstraints { make in
             make.centerY.equalTo(hdrBtn)
-            make.right.equalTo(hdrBtn.snp.left).offset(-4)
+            make.left.equalTo(hdrBtn.snp.right).offset(4)
         }
 
         updateHdr(NSScreen.main!)
@@ -102,7 +102,7 @@ class ViewController: NSViewController {
             hdrBtn.isEnabled = screen.maximumPotentialExtendedDynamicRangeColorComponentValue > 1.0
             hdrText.isEnabled = hdrBtn.isEnabled
         }
-        videoView.hdr = hdrBtn.state == .on && hdrBtn.isEnabled
+        onHdrBtn()
     }
 
     private func initPlayer() {
@@ -110,7 +110,7 @@ class ViewController: NSViewController {
             guard let self = self else { return }
             print("++++++++++currentMediaChanged: \(self.player.media)+++++++")
             let player = self.player
-            player.waitFor(.Stopped)
+            _ = player.waitFor(.Stopped)
             player.state = .Playing
 
             self.resetUi()
@@ -147,7 +147,6 @@ class ViewController: NSViewController {
             durationView.stringValue = player.mediaInfo.duration.timeStringMs()
         }
         playSlider.doubleValue = Double(player.position)
-
     }
 
     private func updateUi(state: State) {
@@ -171,8 +170,18 @@ class ViewController: NSViewController {
         }
     }
 
-    @objc func onHdrBtn(_ btn: NSSwitch) {
-        videoView.hdr = btn.state == .on
+    @objc func onHdrBtn() {
+        var on = false
+        if let btn = hdrBtn as? NSButton {
+            on = btn.state == .on
+        } else {
+            if #available(macOS 10.15, *) {
+                if let swc = hdrBtn as? NSSwitch {
+                    on = swc.state == .on
+                }
+            }
+        }
+        videoView.hdr = on && hdrBtn.isEnabled
     }
 
     @objc func onClick() {
@@ -234,15 +243,25 @@ class ViewController: NSViewController {
     private lazy var hdrText : NSTextField = {
         let view = newTimeLabel()
         view.stringValue = "HDR"
+        view.isEnabled = false
         return view
     }()
 
-    // TODO: for 10.5~10.14 https://github.com/iluuu1994/ITSwitch
-    private lazy var hdrBtn : NSSwitch = {
-        let btn = NSSwitch()
+    private lazy var hdrBtn : NSControl = {
+        let view: NSControl
+        if #available(macOS 10.15, *) {
+            view = NSSwitch()
+        } else {
+            let btn = NSButton()
+            btn.setButtonType(.switch)
+            btn.title = ""
+            view = btn
+        }
         //btn.state = .off
-        btn.action = #selector(onHdrBtn(_:))
-        return btn
+        view.target = self
+        view.action = #selector(onHdrBtn)
+        view.isEnabled = false
+        return view
     }()
 }
 
