@@ -7,6 +7,18 @@
     <key>CFBundleDocumentTypes</key>
 	<array>
         <dict>
+            <key>CFBundleTypeName</key>
+            <string>RED Video Clip</string>
+            <key>LSHandlerRank</key>
+            <string>Owner</string>
+            <key>LSItemContentTypes</key>
+            <array>
+                <string>com.red.r3d</string>
+            </array>
+            <key>CFBundleTypeRole</key>
+            <string>Viewer</string>
+        </dict>
+        <dict>
             <key>CFBundleTypeExtensions</key>
             <array>
                 <string>braw</string>
@@ -456,6 +468,34 @@
 			<false/>
 			<key>NSPersistentStoreTypeKey</key>
 			<string>XML</string>
+		</dict>
+	</array>
+	<key>UTExportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeIdentifier</key>
+			<string>com.red.r3d</string>
+			<key>UTTypeReferenceURL</key>
+			<string>http://www.red.com/r3d</string>
+			<key>UTTypeDescription</key>
+			<string>RED Video Clip</string>
+			<key>UTTypeIconFile</key>
+			<string></string>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.xml</string>
+			</array>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>com.apple.ostype</key>
+				<string>R3D</string>
+				<key>public.filename-extension</key>
+				<array>
+					<string>r3d</string>
+				</array>
+				<key>public.mime-type</key>
+				<string>red/R3D</string>
+			</dict>
 		</dict>
 	</array>
 	<key>CFBundleExecutable</key>

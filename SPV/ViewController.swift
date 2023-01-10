@@ -17,7 +17,7 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setGlobalOption(name: "plugins", value: "mdk-braw")
+        setGlobalOption(name: "plugins", value: "mdk-braw:mdk-r3d")
         setGlobalOption(name: "profiler.gpu", value: 1)
         videoView = MTLVideoView(player: player)
         view.addSubview(videoView)
