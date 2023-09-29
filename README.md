@@ -15,3 +15,5 @@ Swift Video Player for macOS
 - git clone --recurse-submodules https://github.com/wang-bin/SPV.git
 - pod update
 - open SPV.xcworkspace in Xcode
+
+or `xcodebuild -workspace SPV.xcworkspace -configuration Release -scheme SPV CONFIGURATION_BUILD_DIR=$PWD/out`

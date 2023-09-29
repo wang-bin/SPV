@@ -1,0 +1,32 @@
+name: Build
+on:
+  push:
+  schedule:
+    - cron: '0 3 * * 0'
+
+jobs:
+  macOS:
+    runs-on: macos-13
+    strategy:
+      fail-fast: false
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        submodules: 'recursive'
+    - run: pod update --verbose
+    - run: xcodebuild -workspace SPV.xcworkspace -configuration Release -scheme SPV CONFIGURATION_BUILD_DIR=$PWD/out
+    - name: Add plugins dependencies
+      run: |
+        mv out/SPV.app .
+        curl -kL -o BlackmagicRawAPI-macOS.tar.xz https://sourceforge.net/projects/mdk-sdk/files/deps/braw/BlackmagicRawAPI3.3-macOS.tar.xz/download
+        cmake -E tar xvf BlackmagicRawAPI-macOS.tar.xz
+        mv BlackmagicRawAPI.framework SPV.app/Contents/Frameworks/
+        curl -kL -o R3DSDK_Redistributable.7z https://sourceforge.net/projects/mdk-sdk/files/deps/r3d/R3DSDK_Redistributable.7z/download
+        cmake -E tar xvf R3DSDK_Redistributable.7z
+        mv R3DSDK_Redistributable/mac/*.dylib SPV.app/Contents/Frameworks/
+    - run: cmake -E tar cvf SPV.app.7z --format=7zip SPV.app
+    - name: Upload
+      uses: actions/upload-artifact@v3
+      with:
+        name: SPV.app
+        path: SPV.app.7z
