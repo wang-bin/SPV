@@ -4,6 +4,7 @@
 
 Swift Video Player for macOS
 
+- QuickLook plugin
 - High performance
 - HDR display
 - Blackmagic RAW support
