@@ -264,14 +264,16 @@ public class ViewController: NSViewController {
     private lazy var hdrBtn : NSControl = {
         let view: NSControl
         if #available(macOS 10.15, *) {
-            view = NSSwitch()
+            let swc = NSSwitch()
+            swc.state = .on
+            view = swc
         } else {
             let btn = NSButton()
+            btn.state = .on
             btn.setButtonType(.switch)
             btn.title = ""
             view = btn
         }
-        //btn.state = .off
         view.target = self
         view.action = #selector(onHdrBtn)
         view.isEnabled = false
