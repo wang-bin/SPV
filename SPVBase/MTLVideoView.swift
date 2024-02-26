@@ -71,7 +71,7 @@ class MTLVideoView: MTKView {
         }
 
         let scrW = NSScreen.main?.frame.width ?? 1920
-        player.videoDecoders = ["VT:copy=0", "BRAW:gpu=auto:scale=\(scrW)", "R3D:scale=\(scrW)", "hap", "VideoToolbox"]
+        player.videoDecoders = ["VT:copy=0", "VideoToolbox", "BRAW:gpu=auto:scale=\(scrW)", "R3D:scale=\(scrW)", "hap", "FFmpeg"]
 
         player.setTimeout(0, callback: { timeout in
             print("timeout detected \(timeout)!!!!")
