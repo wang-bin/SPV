@@ -8,13 +8,13 @@ import AppKit
 import Cocoa
 import SnapKit
 
-class ViewController: NSViewController {
+public class ViewController: NSViewController {
 
     private let player = Player()
     private var videoView : MTLVideoView!
     private var playTimer : Timer?
 
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
 
         setGlobalOption(name: "plugins", value: "mdk-braw:mdk-r3d")
@@ -81,23 +81,23 @@ class ViewController: NSViewController {
         initPlayer()
     }
 
-    override func viewWillDisappear() {
+    public override func viewWillDisappear() {
         player.state = .Stopped
     }
 
-    override var representedObject: Any? {
+    public override var representedObject: Any? {
         didSet {
         // Update the view, if already loaded.
         }
     }
 
 
-    func play(file: String) {
+    public func play(file: String) {
         view.window?.title = String(file[file.index(after: file.lastIndex(of: "/")!)...])
         player.media = file
     }
 
-    func updateHdr(_ screen: NSScreen) {
+    public func updateHdr(_ screen: NSScreen) {
         if #available(macOS 10.15, *) {
             hdrBtn.isEnabled = screen.maximumPotentialExtendedDynamicRangeColorComponentValue > 1.0
             hdrText.isEnabled = hdrBtn.isEnabled
@@ -106,6 +106,7 @@ class ViewController: NSViewController {
     }
 
     private func initPlayer() {
+        player.setProperty(name: "keep_open", value: "1");
         player.currentMediaChanged({ [weak self] in
             guard let self = self else { return }
             print("++++++++++currentMediaChanged: \(self.player.media)+++++++")
@@ -267,9 +268,9 @@ class ViewController: NSViewController {
 
 
 extension ViewController {
-    override var acceptsFirstResponder: Bool { true }
+    public override var acceptsFirstResponder: Bool { true }
 
-    override func keyDown(with event: NSEvent) {
+    public override func keyDown(with event: NSEvent) {
         interpretKeyEvents([event])
         print("code: \(event.keyCode), char: \(String(describing: event.characters)), modifiers: \(event.modifierFlags)")
         switch event.charactersIgnoringModifiers {
@@ -282,11 +283,11 @@ extension ViewController {
         }
     }
 
-    override func moveLeft(_ sender: Any?) {
+    public override func moveLeft(_ sender: Any?) {
         _ = player.seek(player.position - 10000, callback: nil)
     }
 
-    override func moveRight(_ sender: Any?) {
+    public override func moveRight(_ sender: Any?) {
         _ = player.seek(player.position + 10000, callback: nil)
     }
 }

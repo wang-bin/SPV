@@ -6,6 +6,7 @@
 //
 
 import Cocoa
+import SPVBase
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {

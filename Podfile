@@ -8,6 +8,9 @@ target 'SPV' do
   pod 'mdk'
   # Pods for SPV
 
+  target 'SPVBase' do
+  end
+
   target 'SPVTests' do
     inherit! :search_paths
     # Pods for testing
