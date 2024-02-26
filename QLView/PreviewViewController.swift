@@ -8,6 +8,7 @@
 import Cocoa
 import Quartz
 import SPVBase
+import SnapKit
 
 class PreviewViewController: NSViewController, QLPreviewingController {
 
@@ -42,7 +43,9 @@ class PreviewViewController: NSViewController, QLPreviewingController {
         // Quick Look will display a loading spinner while the completion handler is not called.
         let vc = ViewController()
         view.addSubview(vc.view)
-        // FIXME: layout
+        vc.view.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
         vc.play(file: url.path)
 
         // TODO: await

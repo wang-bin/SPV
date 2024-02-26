@@ -151,11 +151,20 @@ public class ViewController: NSViewController {
     }
 
     private func updateUi(state: State) {
-        switch state {
-        case .Playing:
-            playBtn.title = "||"
-        default:
-            playBtn.title = ">"
+        if #available(macOS 11.0, *) {
+            switch state {
+            case .Playing:
+                playBtn.image = NSImage(systemSymbolName: "pause.fill", accessibilityDescription: "play")
+            default:
+                playBtn.image = NSImage(systemSymbolName: "play.fill", accessibilityDescription: "play")
+            }
+        } else {
+            switch state {
+            case .Playing:
+                playBtn.title = "||"
+            default:
+                playBtn.title = ">"
+            }
         }
     }
 
@@ -229,8 +238,12 @@ public class ViewController: NSViewController {
 
     private lazy var playBtn : NSButton = {
         let btn = NSButton()
-        btn.title = ">"
-        btn.font = NSFont.pfSemibold(size: 20)
+        if #available(macOS 11.0, *) {
+            btn.image = NSImage(systemSymbolName: "play.fill", accessibilityDescription: "play")
+        } else {
+            btn.title = ">"
+            btn.font = NSFont.pfSemibold(size: 20)
+        }
         btn.target = self
         btn.action = #selector(onPlayBtn(_:))
         // clear background
