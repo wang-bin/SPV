@@ -1,6 +1,6 @@
 # SPV
 
-[Download](https://sourceforge.net/projects/mdk-sdk/files/app/SPV.app.tar.xz/download)
+[Download](https://sourceforge.net/projects/mdk-sdk/files/app/SPV.app.7z/download) from [github actions(artifacts)](https://github.com/wang-bin/SPV/actions) or [SF](https://sourceforge.net/projects/mdk-sdk/files/app/SPV.app.7z/download)
 
 Swift Video Player for macOS
 

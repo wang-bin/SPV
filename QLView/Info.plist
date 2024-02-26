@@ -10,6 +10,9 @@
 			<false/>
 			<key>QLSupportedContentTypes</key>
 			<array>
+                <string>com.red.r3d</string>
+                <string>com.blackmagic-design.braw-movie</string>
+                <string>com.blackmagic-design.braw2-movie</string>
 <!-- copy from QLVideo -->
 				<!-- Try to handle everything; Audio & CoreMedia importers will grab the more specific UTIs that they want to handle -->
 				<string>public.audiovisual-content</string>
