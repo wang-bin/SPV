@@ -83,6 +83,8 @@ public class ViewController: NSViewController {
 
     public override func viewWillDisappear() {
         player.state = .Stopped
+        playTimer?.invalidate()
+        videoView.removeRenderer()
     }
 
     public override var representedObject: Any? {
@@ -134,10 +136,10 @@ public class ViewController: NSViewController {
             })
         })
 
-        player.onStateChanged { (state) in
+        player.onStateChanged { [weak self] (state)  in
             print(".....State changed to \(state)....")
             DispatchQueue.main.async {
-                self.updateUi(state: state)
+                self?.updateUi(state: state)
             }
             switch state {
             case .Stopped:

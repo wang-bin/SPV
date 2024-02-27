@@ -56,6 +56,7 @@ class PreviewViewController: NSViewController, QLPreviewingController {
         // Call the completion handler so Quick Look knows that the preview is fully loaded.
         // Quick Look will display a loading spinner while the completion handler is not called.
         let vc = ViewController()
+        addChild(vc) // avoid vc deinit immediately
         view.addSubview(vc.view)
         vc.view.snp.makeConstraints { make in
             make.edges.equalToSuperview()

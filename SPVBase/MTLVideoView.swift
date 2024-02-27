@@ -56,6 +56,10 @@ class MTLVideoView: MTKView {
         return false
     }
 
+    func removeRenderer() {
+        player.setVideoSurfaceSize(-1.0, -1.0, vid: self)
+    }
+
     func createRenderer(device: MTLDevice){
         cmdQueue = device.makeCommandQueue()
         delegate = self
