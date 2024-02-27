@@ -7,29 +7,15 @@
 
 import Cocoa
 import SPVBase
-import os
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     var files = [String]()
 
-    static private let logObj = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "media")
-    @available(macOS 11.0, *)
-    static private let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "media")
     func applicationDidFinishLaunching(_ aNotification: Notification) {
 
         logLevel = .All
-        setLogHandler { (level, msg) in
-            if #available(macOS 11.0, *) {
-                AppDelegate.logger.log(level: .default, "\(msg, privacy: .public)")
-            } else {
-                os_log("%@", log: AppDelegate.logObj, type: .default, msg)
-                //OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "media")
-            }
-        }
 
-        setGlobalOption(name: "log", value: "all")
-        setGlobalOption(name: "MDK_KEY", value: "529809C623F1BF3CF6EA1185CE26D58FE00080C9352A743D65BA55968C1F3CAE16325E5B02B0CF466C474EA0E9305DF02A3D2EDA4CA0EFD2F03EA4D47011980CAD67F639DC0E40C30915EE7A31D92A70E00093AA5A475A5000DE3CF7E87A4AC57F46700852E6CD518320D3192631050388510E945A9E57E4931461ABED46980C")
         // Insert code here to initialize your application
         guard let win = NSApp.windows.first else {return}
         guard let vc = win.contentViewController else {

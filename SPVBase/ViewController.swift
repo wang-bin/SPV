@@ -7,18 +7,36 @@
 import AppKit
 import Cocoa
 import SnapKit
+import os
 
 public class ViewController: NSViewController {
 
     private let player = Player()
     private var videoView : MTLVideoView!
     private var playTimer : Timer?
+    static private let logObj = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "media")
+    @available(macOS 11.0, *)
+    static private let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "media")
+
+    static private let dummy = {
+        setLogHandler { (level, msg) in
+            if #available(macOS 11.0, macOSApplicationExtension 11.0, *) {
+                ViewController.logger.log(level: .default, "\(msg, privacy: .public)")
+            } else {
+                os_log("%@", log: ViewController.logObj, type: .default, msg)
+                //OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "media")
+            }
+        }
+        setGlobalOption(name: "MDK_KEY", value: "529809C623F1BF3CF6EA1185CE26D58FE00080C9352A743D65BA55968C1F3CAE16325E5B02B0CF466C474EA0E9305DF02A3D2EDA4CA0EFD2F03EA4D47011980CAD67F639DC0E40C30915EE7A31D92A70E00093AA5A475A5000DE3CF7E87A4AC57F46700852E6CD518320D3192631050388510E945A9E57E4931461ABED46980C")
+        setGlobalOption(name: "plugins", value: "mdk-braw:mdk-r3d")
+        setGlobalOption(name: "profiler.gpu", value: 1)
+        return 0
+    }()
 
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        setGlobalOption(name: "plugins", value: "mdk-braw:mdk-r3d")
-        setGlobalOption(name: "profiler.gpu", value: 1)
+        print(ViewController.dummy)
         videoView = MTLVideoView(player: player)
         view.addSubview(videoView)
         videoView.snp.makeConstraints { (make) in
