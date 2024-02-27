@@ -10,9 +10,15 @@
 			<false/>
 			<key>QLSupportedContentTypes</key>
 			<array>
+<!-- mdls -name kMDItemContentTypeTree -->
                 <string>com.red.r3d</string>
                 <string>com.blackmagic-design.braw-movie</string>
                 <string>com.blackmagic-design.braw2-movie</string>
+                <string>com.zfuse.fileformat.mkv</string>
+                <string>com.mediadevkit.fileformat.mkv</string>
+                <string>com.mediadevkit.fileformat.mjpeg</string>
+                <string>com.zfuse.fileformat.m2ts</string>
+                <string>mo.darren.optimus.public.m-jpeg-video</string>
 <!-- copy from QLVideo -->
 				<!-- Try to handle everything; Audio & CoreMedia importers will grab the more specific UTIs that they want to handle -->
 				<string>public.audiovisual-content</string>
