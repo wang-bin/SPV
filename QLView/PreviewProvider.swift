@@ -8,7 +8,7 @@
 import Cocoa
 import Quartz
 
-@available(macOS 12.0, *)
+@available(macOSApplicationExtension 12.0, *)
 class PreviewProvider: QLPreviewProvider, QLPreviewingController {
 
 

@@ -9,9 +9,13 @@ import Cocoa
 import Quartz
 import SPVBase
 import SnapKit
+import os
 
 class PreviewViewController: NSViewController, QLPreviewingController {
 
+    static private let logObj = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "media")
+    @available(macOSApplicationExtension 11.0, *)
+    static private let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "media")
     override var nibName: NSNib.Name? {
         return NSNib.Name("PreviewViewController")
     }
@@ -19,6 +23,16 @@ class PreviewViewController: NSViewController, QLPreviewingController {
     override func loadView() {
         super.loadView()
         // Do any additional setup after loading the view.
+
+        logLevel = .All
+        setLogHandler { (level, msg) in
+            if #available(macOSApplicationExtension 11.0, *) {
+                PreviewViewController.logger.log(level: .default, "\(msg, privacy: .public)")
+            } else {
+                os_log("%@", log: PreviewViewController.logObj, type: .default, msg)
+                //OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "media")
+            }
+        }
     }
 
     /*
