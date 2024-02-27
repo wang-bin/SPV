@@ -46,9 +46,6 @@ class PreviewViewController: NSViewController, QLPreviewingController {
         vc.view.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        vc.play(file: url.path)
-
-        // TODO: await
-        handler(nil)
+        vc.play(file: url.path, completionHandler: handler)
     }
 }

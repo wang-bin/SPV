@@ -51,7 +51,7 @@ public class ViewController: NSViewController {
         }
 
         hdrBtn.snp.makeConstraints { make in
-            make.top.equalTo(playBtn.snp.top)
+            make.bottom.equalTo(playSlider.snp.top)
             make.left.equalTo(playSlider.snp.right)
         }
         hdrText.snp.makeConstraints { make in
@@ -92,9 +92,22 @@ public class ViewController: NSViewController {
     }
 
 
-    public func play(file: String) {
+    public func play(file: String, completionHandler handler: ((Error?) -> Void)? = nil) {
         view.window?.title = String(file[file.index(after: file.lastIndex(of: "/")!)...])
         player.media = file
+        guard let handler = handler else { return }
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            guard let self = self else {return}
+            if (self.player.waitFor(.Playing, timeout: 4000)) {
+                handler(nil)
+                return
+            }
+            struct OpenError : Error {
+                init() {}
+            }
+            handler(OpenError())
+        }
+
     }
 
     public func updateHdr(_ screen: NSScreen) {
@@ -154,7 +167,7 @@ public class ViewController: NSViewController {
         if #available(macOS 11.0, *) {
             switch state {
             case .Playing:
-                playBtn.image = NSImage(systemSymbolName: "pause.fill", accessibilityDescription: "play")
+                playBtn.image = NSImage(systemSymbolName: "pause.fill", accessibilityDescription: "pause")
             default:
                 playBtn.image = NSImage(systemSymbolName: "play.fill", accessibilityDescription: "play")
             }
