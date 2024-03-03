@@ -26,6 +26,9 @@ jobs:
         curl -kL -o R3DSDK_Redistributable.7z https://sourceforge.net/projects/mdk-sdk/files/deps/r3d/R3DSDK_Redistributable.7z/download
         cmake -E tar xvf R3DSDK_Redistributable.7z
         mv R3DSDK_Redistributable/mac/*.dylib SPV.app/Contents/Frameworks/
+        curl -kL -o dep.7z https://sourceforge.net/projects/mdk-sdk/files/deps/dep.7z/download
+        cmake -E tar xvf dep.7z
+        mv dep/lib/macOS/libdav1d.dylib SPV.app/Contents/Frameworks/
     - run: cmake -E tar cvf SPV.app.7z --format=7zip SPV.app
     - name: Upload
       uses: actions/upload-artifact@v4

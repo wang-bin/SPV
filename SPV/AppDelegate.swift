@@ -15,7 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
 
         logLevel = .All
-
+        setGlobalOption(name: "MDK_KEY", value: "529809C623F1BF3CF6EA1185CE26D58FE00080C9352A743D65BA55968C1F3CAE16325E5B02B0CF466C474EA0E9305DF02A3D2EDA4CA0EFD2F03EA4D47011980CAD67F639DC0E40C30915EE7A31D92A70E00093AA5A475A5000DE3CF7E87A4AC57F46700852E6CD518320D3192631050388510E945A9E57E4931461ABED46980C")
         // Insert code here to initialize your application
         guard let win = NSApp.windows.first else {return}
         guard let vc = win.contentViewController else {
