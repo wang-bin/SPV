@@ -132,7 +132,9 @@ public class ViewController: NSViewController {
     public func updateHdr(_ screen: NSScreen) {
         if #available(macOS 10.15, *) {
             hdrBtn.isEnabled = screen.maximumPotentialExtendedDynamicRangeColorComponentValue > 1.0
+            hdrBtn.isHidden = !hdrBtn.isEnabled
             hdrText.isEnabled = hdrBtn.isEnabled
+            hdrText.isHidden = hdrBtn.isHidden
         }
         onHdrBtn()
     }
@@ -290,6 +292,7 @@ public class ViewController: NSViewController {
         let view = newTimeLabel()
         view.stringValue = "HDR"
         view.isEnabled = false
+        view.isHidden = true
         return view
     }()
 
@@ -309,6 +312,7 @@ public class ViewController: NSViewController {
         view.target = self
         view.action = #selector(onHdrBtn)
         view.isEnabled = false
+        view.isHidden = true
         return view
     }()
 }
