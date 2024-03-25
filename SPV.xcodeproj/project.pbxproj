@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		623447682BB174EF00EB6A1A /* PreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62543E8E2B8C66460086976B /* PreviewViewController.xib */; };
 		62543E882B8C66460086976B /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62543E702B8C63EC0086976B /* Quartz.framework */; };
 		62543E8B2B8C66460086976B /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62543E8A2B8C66460086976B /* PreviewViewController.swift */; };
 		62543E8D2B8C66460086976B /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62543E8C2B8C66460086976B /* PreviewProvider.swift */; };
-		62543E902B8C66460086976B /* PreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62543E8E2B8C66460086976B /* PreviewViewController.xib */; };
 		62543E952B8C66460086976B /* QLView.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 62543E872B8C66460086976B /* QLView.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		62543EA12B8C720D0086976B /* SPVBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 62543EA02B8C720D0086976B /* SPVBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62543EA42B8C720D0086976B /* SPVBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62543E9E2B8C720D0086976B /* SPVBase.framework */; };
@@ -420,7 +420,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62543E902B8C66460086976B /* PreviewViewController.xib in Resources */,
+				623447682BB174EF00EB6A1A /* PreviewViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
