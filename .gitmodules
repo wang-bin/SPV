@@ -1,4 +1,0 @@
-[submodule "SPV/mdkSwift"]
-[submodule "SPVBase/mdkSwift"]
-	path = SPVBase/mdkSwift
-	url = https://github.com/wang-bin/mdkSwift

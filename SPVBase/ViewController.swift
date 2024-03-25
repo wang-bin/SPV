@@ -8,6 +8,7 @@ import AppKit
 import Cocoa
 import SnapKit
 import os
+import swift_mdk
 
 public class ViewController: NSViewController {
 

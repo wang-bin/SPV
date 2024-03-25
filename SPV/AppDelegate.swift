@@ -7,6 +7,7 @@
 
 import Cocoa
 import SPVBase
+import swift_mdk
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {

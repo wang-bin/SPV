@@ -6,6 +6,7 @@
 //
 
 import MetalKit
+import swift_mdk
 
 // MARK: Metal Stuff
 

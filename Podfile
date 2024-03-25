@@ -5,7 +5,7 @@ target 'SPV' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
   pod 'SnapKit'
-  pod 'mdk'
+  pod 'swift-mdk'
   # Pods for SPV
 
   target 'SPVBase' do

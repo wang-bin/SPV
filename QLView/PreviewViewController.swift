@@ -9,6 +9,7 @@ import Cocoa
 import Quartz
 import SPVBase
 import SnapKit
+import swift_mdk
 
 class PreviewViewController: NSViewController, QLPreviewingController {
 

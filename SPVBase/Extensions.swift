@@ -46,7 +46,7 @@ extension NSFont {
         }
         return f
     }
-    
+
     static func pfSemibold(size: CGFloat) -> NSFont {
         guard let f = NSFont(name: "PingFangSC-Semibold", size: size) else {
             return NSFont.systemFont(ofSize: size)
