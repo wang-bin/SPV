@@ -18,3 +18,6 @@ Swift Video Player for macOS
 - open SPV.xcworkspace in Xcode
 
 or `xcodebuild -workspace SPV.xcworkspace -configuration Release -scheme SPV CONFIGURATION_BUILD_DIR=$PWD/out`
+
+# TODO
+QuickLook not file type association
