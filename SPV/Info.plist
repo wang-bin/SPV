@@ -4,52 +4,68 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
-    <key>CFBundleDocumentTypes</key>
+	<key>CFBundleDocumentTypes</key>
 	<array>
-        <dict>
-            <key>CFBundleTypeName</key>
-            <string>RED Video Clip</string>
-            <key>LSHandlerRank</key>
-            <string>Owner</string>
-            <key>LSItemContentTypes</key>
-            <array>
-                <string>com.red.r3d</string>
-            </array>
-            <key>CFBundleTypeRole</key>
-            <string>Viewer</string>
-        </dict>
-        <dict>
-            <key>CFBundleTypeExtensions</key>
-            <array>
-                <string>braw</string>
-                <string>braw2</string>
-                <string>sidecar</string>
-            </array>
-            <key>CFBundleTypeIconFile</key>
-            <string>braw</string>
-            <key>CFBundleTypeMIMETypes</key>
-            <array>
-                <string>movie/x-braw</string>
-            </array>
-            <key>CFBundleTypeName</key>
-            <string>Blackmagic Design Raw Movie</string>
-            <key>CFBundleTypeRole</key>
-            <string>Viewer</string>
-            <key>LSHandlerRank</key>
-            <string>Owner</string>
-            <key>LSItemContentTypes</key>
-            <array>
-                <string>com.blackmagic-design.braw-movie</string>
-                <string>com.blackmagic-design.braw2-movie</string>
-                <string>com.blackmagic-design.braw-sidecar</string>
-            </array>
-            <key>LSTypeIsPackage</key>
-            <integer>0</integer>
-            <key>NSDocumentClass</key>
-            <string>NSDocument</string>
-            <key>NSIsRelatedItemType</key>
-            <true/>
-        </dict>
+		<dict>
+			<key>CFBundleTypeName</key>
+			<string>RED Video Clip</string>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.red.r3d</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeName</key>
+			<string>Nikon N-RAW</string>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>nev</string>
+			</array>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.red.nraw</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>braw</string>
+				<string>braw2</string>
+				<string>sidecar</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>braw</string>
+			<key>CFBundleTypeMIMETypes</key>
+			<array>
+				<string>movie/x-braw</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>Blackmagic Design Raw Movie</string>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.blackmagic-design.braw-movie</string>
+				<string>com.blackmagic-design.braw2-movie</string>
+				<string>com.blackmagic-design.braw-sidecar</string>
+			</array>
+			<key>LSTypeIsPackage</key>
+			<integer>0</integer>
+			<key>NSDocumentClass</key>
+			<string>NSDocument</string>
+			<key>NSIsRelatedItemType</key>
+			<true/>
+		</dict>
 		<dict>
 			<key>CFBundleTypeExtensions</key>
 			<array>
@@ -2108,8 +2124,23 @@
 				</array>
 			</dict>
 		</dict>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.video</string>
+			</array>
+	
+			<key>UTTypeIdentifier</key>
+			<string>com.mediadevkit.fileformat.nraw</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>nev</string>
+				</array>
+			</dict>
+		</dict>
 	</array>
-
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIconFile</key>
