@@ -10,15 +10,17 @@
 			<false/>
 			<key>QLSupportedContentTypes</key>
 			<array>
+				<string>com.mediadevkit.fileformat.nraw</string>
+				<string>com.red.nraw</string>
 <!-- mdls -name kMDItemContentTypeTree -->
-                <string>com.red.r3d</string>
-                <string>com.blackmagic-design.braw-movie</string>
-                <string>com.blackmagic-design.braw2-movie</string>
-                <string>com.zfuse.fileformat.mkv</string>
-                <string>com.mediadevkit.fileformat.mkv</string>
-                <string>com.mediadevkit.fileformat.mjpeg</string>
-                <string>com.zfuse.fileformat.m2ts</string>
-                <string>mo.darren.optimus.public.m-jpeg-video</string>
+				<string>com.red.r3d</string>
+				<string>com.blackmagic-design.braw-movie</string>
+				<string>com.blackmagic-design.braw2-movie</string>
+				<string>com.zfuse.fileformat.mkv</string>
+				<string>com.mediadevkit.fileformat.mkv</string>
+				<string>com.mediadevkit.fileformat.mjpeg</string>
+				<string>com.zfuse.fileformat.m2ts</string>
+				<string>mo.darren.optimus.public.m-jpeg-video</string>
 <!-- copy from QLVideo -->
 				<!-- Try to handle everything; Audio & CoreMedia importers will grab the more specific UTIs that they want to handle -->
 				<string>public.audiovisual-content</string>
@@ -168,7 +170,7 @@
 				<string>com.canon.raw.movie</string>
 
 				<!-- defined by Infuse.app -->
-			       	<string>com.firecore.fileformat.dvr-ms</string>
+				<string>com.firecore.fileformat.dvr-ms</string>
 				<string>com.firecore.fileformat.flv</string>
 				<string>com.firecore.fileformat.mpg</string>
 				<string>com.firecore.fileformat.wmv</string>
