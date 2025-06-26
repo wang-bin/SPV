@@ -8,16 +8,16 @@ import AppKit
 import Cocoa
 import SnapKit
 import os
-import swift_mdk
+@preconcurrency import swift_mdk
 
 public class ViewController: NSViewController {
 
-    private let player = Player()
+    nonisolated(unsafe) private let player = Player()
     private var videoView : MTLVideoView!
     private var playTimer : Timer?
-    static private let logObj = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "media")
+    nonisolated static private let logObj = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "media")
     @available(macOS 11.0, *)
-    static private let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "media")
+    nonisolated static private let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "media")
 
     static private let dummy = {
         setLogHandler { (level, msg) in
@@ -149,11 +149,15 @@ public class ViewController: NSViewController {
             _ = player.waitFor(.Stopped)
             player.state = .Playing
 
-            self.resetUi()
-            self.playTimer?.invalidate()
-            self.playTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { (timer) in
-                self.syncUi()
-            })
+            DispatchQueue.main.async {
+                self.resetUi()
+                self.playTimer?.invalidate()
+                self.playTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { (timer) in
+                    DispatchQueue.main.async {
+                        self.syncUi()
+                    }
+                })
+            }
         })
 
         player.onStateChanged { [weak self] (state)  in

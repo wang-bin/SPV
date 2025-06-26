@@ -7,11 +7,11 @@
 
 import Cocoa
 import Quartz
-import SPVBase
 import SnapKit
 import swift_mdk
+import SPVBase
 
-class PreviewViewController: NSViewController, QLPreviewingController {
+class PreviewViewController: NSViewController, @preconcurrency QLPreviewingController {
 
     override var nibName: NSNib.Name? {
         return NSNib.Name("PreviewViewController")

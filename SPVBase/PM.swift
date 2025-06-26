@@ -7,8 +7,10 @@
 
 import IOKit.pwr_mgt
 
-fileprivate var pmid = IOPMAssertionLevel(kIOPMNullAssertionID)
+//@MainActor
+nonisolated(unsafe) fileprivate var pmid = IOPMAssertionLevel(kIOPMNullAssertionID)
 
+//@MainActor
 func SetPowerManageMent(_ value : Bool) {
     if value {
         if pmid == kIOPMNullAssertionID {

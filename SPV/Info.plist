@@ -489,6 +489,25 @@
 	<key>UTExportedTypeDeclarations</key>
 	<array>
 		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.xml</string>
+			</array>
+			<key>UTTypeIdentifier</key>
+			<string>com.red.nraw</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.mime-type</key>
+				<array>
+					<string>video/n-raw</string>
+				</array>
+				<key>public.filename-extension</key>
+				<array>
+					<string>nev</string>
+				</array>
+			</dict>
+		</dict>
+		<dict>
 			<key>UTTypeIdentifier</key>
 			<string>com.red.r3d</string>
 			<key>UTTypeReferenceURL</key>
@@ -514,7 +533,6 @@
 			</dict>
 		</dict>
 	</array>
-
 	<key>UTImportedTypeDeclarations</key>
 	<array>
 		<dict>
@@ -659,7 +677,6 @@
 				</array>
 			</dict>
 		</dict>
-
 		<dict>
 			<key>UTTypeConformsTo</key>
 			<array>
@@ -1760,8 +1777,6 @@
 				</array>
 			</dict>
 		</dict>
-
-
 		<dict>
 			<key>UTTypeConformsTo</key>
 			<array>
@@ -2129,7 +2144,6 @@
 			<array>
 				<string>public.video</string>
 			</array>
-	
 			<key>UTTypeIdentifier</key>
 			<string>com.mediadevkit.fileformat.nraw</string>
 			<key>UTTypeTagSpecification</key>
