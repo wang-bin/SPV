@@ -817,7 +817,7 @@
 				</array>
 				<key>public.mime-type</key>
 				<array>
-					<string>audio/x-ms-wmv</string>
+					<string>video/x-ms-wmv</string>
 				</array>
 			</dict>
 		</dict>
@@ -2288,6 +2288,8 @@
 			<array>
 				<string>public.video</string>
 			</array>
+			<key>UTTypeDescription</key>
+			<string>Nikon N-RAW Video</string>
 			<key>UTTypeIdentifier</key>
 			<string>com.mediadevkit.fileformat.nraw</string>
 			<key>UTTypeTagSpecification</key>
