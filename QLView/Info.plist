@@ -18,9 +18,61 @@
 				<string>com.blackmagic-design.braw2-movie</string>
 				<string>com.zfuse.fileformat.mkv</string>
 				<string>com.mediadevkit.fileformat.mkv</string>
+				<string>com.mediadevkit.fileformat.mka</string>
+				<string>com.mediadevkit.fileformat.mk3d</string>
 				<string>com.mediadevkit.fileformat.mjpeg</string>
 				<string>com.zfuse.fileformat.m2ts</string>
+				<string>com.mediadevkit.fileformat.m2ts</string>
+				<string>com.mediadevkit.fileformat.mts</string>
+				<string>com.mediadevkit.fileformat.ts</string>
 				<string>mo.darren.optimus.public.m-jpeg-video</string>
+				<string>com.mediadevkit.fileformat.flv</string>
+				<string>com.mediadevkit.fileformat.3gp</string>
+				<string>com.mediadevkit.fileformat.3g2</string>
+				<string>com.mediadevkit.fileformat.mpg</string>
+				<string>com.mediadevkit.fileformat.mpeg</string>
+				<string>com.mediadevkit.fileformat.wmv</string>
+				<string>com.mediadevkit.fileformat.wma</string>
+				<string>com.mediadevkit.fileformat.avi</string>
+				<string>com.mediadevkit.fileformat.m4v</string>
+				<string>com.mediadevkit.fileformat.mov</string>
+				<string>com.mediadevkit.fileformat.mp4</string>
+				<string>com.mediadevkit.fileformat.mod</string>
+				<string>com.mediadevkit.fileformat.wtv</string>
+				<string>com.mediadevkit.fileformat.webm</string>
+				<string>com.mediadevkit.fileformat.ogm</string>
+				<string>com.mediadevkit.fileformat.ogv</string>
+				<string>com.mediadevkit.fileformat.bik</string>
+				<string>com.mediadevkit.fileformat.asf</string>
+				<string>com.mediadevkit.fileformat.vob</string>
+				<string>com.mediadevkit.fileformat.divx</string>
+				<string>com.mediadevkit.fileformat.rmvb</string>
+				<string>com.mediadevkit.fileformat.ra</string>
+				<string>com.mediadevkit.fileformat.mxf</string>
+				<string>com.mediadevkit.fileformat.ogg</string>
+				<string>com.mediadevkit.fileformat.oga</string>
+				<string>com.mediadevkit.fileformat.wav</string>
+				<string>com.mediadevkit.fileformat.aac</string>
+				<string>com.mediadevkit.fileformat.ape</string>
+				<string>com.mediadevkit.fileformat.flac</string>
+				<string>com.mediadevkit.fileformat.m4a</string>
+				<string>com.mediadevkit.fileformat.mp3</string>
+				<string>com.mediadevkit.fileformat.ac3</string>
+				<string>com.mediadevkit.fileformat.aiff</string>
+				<string>com.mediadevkit.fileformat.3gpp.amr</string>
+				<string>com.mediadevkit.fileformat.3gpp.amrnb</string>
+				<string>com.mediadevkit.fileformat.3gpp.amrwb</string>
+				<string>com.mediadevkit.fileformat.apng</string>
+				<string>com.mediadevkit.fileformat.dnxhd</string>
+				<string>com.mediadevkit.fileformat.dts</string>
+				<string>com.mediadevkit.fileformat.dts-hd</string>
+				<string>com.mediadevkit.fileformat.dv-movie</string>
+				<string>com.mediadevkit.fileformat.gif</string>
+				<string>com.mediadevkit.fileformat.h263</string>
+				<string>com.mediadevkit.fileformat.h264</string>
+				<string>com.mediadevkit.fileformat.hevc</string>
+				<string>com.mediadevkit.fileformat.jpeg-2000</string>
+				<string>com.mediadevkit.fileformat.mp2</string>
 <!-- copy from QLVideo -->
 				<!-- Try to handle everything; Audio & CoreMedia importers will grab the more specific UTIs that they want to handle -->
 				<string>public.audiovisual-content</string>
