@@ -80,10 +80,18 @@
 			<string>Matroska video</string>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.mediadevkit.fileformat.mkv</string>
+				<string>com.mediadevkit.fileformat.mka</string>
+				<string>com.mediadevkit.fileformat.mk3d</string>
+				<string>com.zfuse.fileformat.mkv</string>
+				<string>org.matroska.mkv</string>
+			</array>
 			<key>LSTypeIsPackage</key>
 			<false/>
-			<key>NSPersistentStoreTypeKey</key>
-			<string>XML</string>
 		</dict>
 		<dict>
 			<key>CFBundleTypeExtensions</key>
@@ -97,10 +105,10 @@
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
 			<key>LSHandlerRank</key>
-			<string>Default</string>
+			<string>Owner</string>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string></string>
+				<string>com.mediadevkit.fileformat.mka</string>
 			</array>
 			<key>LSTypeIsPackage</key>
 			<false/>
@@ -118,10 +126,17 @@
 			<string>Real Media file</string>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.mediadevkit.fileformat.rmvb</string>
+				<string>com.mediadevkit.fileformat.ra</string>
+				<string>com.real.realmedia</string>
+				<string>com.real.realmedia-vbr</string>
+			</array>
 			<key>LSTypeIsPackage</key>
 			<false/>
-			<key>NSPersistentStoreTypeKey</key>
-			<string>XML</string>
 		</dict>
 		<dict>
 			<key>CFBundleTypeExtensions</key>
@@ -134,10 +149,15 @@
 			<string>Advanced Systems Format (ASF) media</string>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.mediadevkit.fileformat.asf</string>
+				<string>com.microsoft.advanced-systems-format</string>
+			</array>
 			<key>LSTypeIsPackage</key>
 			<false/>
-			<key>NSPersistentStoreTypeKey</key>
-			<string>XML</string>
 		</dict>
 		<dict>
 			<key>CFBundleTypeExtensions</key>
@@ -150,10 +170,14 @@
 			<string>Advanced Audio Coding (AAC) media</string>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.mediadevkit.fileformat.aac</string>
+			</array>
 			<key>LSTypeIsPackage</key>
 			<false/>
-			<key>NSPersistentStoreTypeKey</key>
-			<string>XML</string>
 		</dict>
 		<dict>
 			<key>CFBundleTypeExtensions</key>
@@ -170,10 +194,15 @@
 			<string>Flash Video file</string>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.mediadevkit.fileformat.flv</string>
+				<string>com.adobe.flash.video</string>
+			</array>
 			<key>LSTypeIsPackage</key>
 			<false/>
-			<key>NSPersistentStoreTypeKey</key>
-			<string>XML</string>
 		</dict>
 		<dict>
 			<key>CFBundleTypeExtensions</key>
@@ -186,10 +215,16 @@
 			<string>WebM media</string>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.mediadevkit.fileformat.webm</string>
+				<string>org.webmproject.webm</string>
+				<string>com.google.webm</string>
+			</array>
 			<key>LSTypeIsPackage</key>
 			<false/>
-			<key>NSPersistentStoreTypeKey</key>
-			<string>XML</string>
 		</dict>
 		<dict>
 			<key>CFBundleTypeExtensions</key>
@@ -203,10 +238,17 @@
 			<string>3GPP media</string>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.mediadevkit.fileformat.3gp</string>
+				<string>com.mediadevkit.fileformat.3g2</string>
+				<string>public.3gpp</string>
+				<string>public.3gpp2</string>
+			</array>
 			<key>LSTypeIsPackage</key>
 			<false/>
-			<key>NSPersistentStoreTypeKey</key>
-			<string>XML</string>
 		</dict>
 		<dict>
 			<key>CFBundleTypeExtensions</key>
@@ -219,10 +261,14 @@
 			<string>MPEG Layer III (MP3) audio</string>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.mediadevkit.fileformat.mp3</string>
+			</array>
 			<key>LSTypeIsPackage</key>
 			<false/>
-			<key>NSPersistentStoreTypeKey</key>
-			<string>XML</string>
 		</dict>
 		<dict>
 			<key>CFBundleTypeExtensions</key>
@@ -236,10 +282,15 @@
 			<string>OGG audio</string>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.mediadevkit.fileformat.ogg</string>
+				<string>com.mediadevkit.fileformat.oga</string>
+			</array>
 			<key>LSTypeIsPackage</key>
 			<false/>
-			<key>NSPersistentStoreTypeKey</key>
-			<string>XML</string>
 		</dict>
 		<dict>
 			<key>CFBundleTypeExtensions</key>
@@ -253,10 +304,16 @@
 			<string>OGG video</string>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.mediadevkit.fileformat.ogv</string>
+				<string>com.mediadevkit.fileformat.ogm</string>
+				<string>org.xiph.ogv</string>
+			</array>
 			<key>LSTypeIsPackage</key>
 			<false/>
-			<key>NSPersistentStoreTypeKey</key>
-			<string>XML</string>
 		</dict>
 		<dict>
 			<key>CFBundleTypeExtensions</key>
@@ -271,10 +328,18 @@
 			<string>MPEG transport stream (TS) media</string>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.mediadevkit.fileformat.ts</string>
+				<string>com.mediadevkit.fileformat.m2ts</string>
+				<string>com.mediadevkit.fileformat.mts</string>
+				<string>com.zfuse.fileformat.m2ts</string>
+				<string>public.mpeg-2-transport-stream</string>
+			</array>
 			<key>LSTypeIsPackage</key>
 			<false/>
-			<key>NSPersistentStoreTypeKey</key>
-			<string>XML</string>
 		</dict>
 		<dict>
 			<key>CFBundleTypeExtensions</key>
@@ -287,10 +352,15 @@
 			<string>AVI media</string>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.mediadevkit.fileformat.avi</string>
+				<string>public.avi</string>
+			</array>
 			<key>LSTypeIsPackage</key>
 			<false/>
-			<key>NSPersistentStoreTypeKey</key>
-			<string>XML</string>
 		</dict>
 		<dict>
 			<key>CFBundleTypeExtensions</key>
@@ -303,10 +373,14 @@
 			<string>Waveform Audio File (WAV) audio</string>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.mediadevkit.fileformat.wav</string>
+			</array>
 			<key>LSTypeIsPackage</key>
 			<false/>
-			<key>NSPersistentStoreTypeKey</key>
-			<string>XML</string>
 		</dict>
 		<dict>
 			<key>CFBundleTypeExtensions</key>
@@ -320,10 +394,14 @@
 			<string>MPEG-4 audio</string>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.mediadevkit.fileformat.m4a</string>
+			</array>
 			<key>LSTypeIsPackage</key>
 			<false/>
-			<key>NSPersistentStoreTypeKey</key>
-			<string>XML</string>
 		</dict>
 		<dict>
 			<key>CFBundleTypeExtensions</key>
@@ -337,10 +415,18 @@
 			<string>Windows Media Video/Audio (WMV/WMA) media</string>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.mediadevkit.fileformat.wmv</string>
+				<string>com.mediadevkit.fileformat.wma</string>
+				<string>com.microsoft.windows-media-wmv</string>
+				<string>com.microsoft.windows-media-wm</string>
+				<string>com.microsoft.windows-media-wmp</string>
+			</array>
 			<key>LSTypeIsPackage</key>
 			<false/>
-			<key>NSPersistentStoreTypeKey</key>
-			<string>XML</string>
 		</dict>
 		<dict>
 			<key>CFBundleTypeExtensions</key>
@@ -354,10 +440,15 @@
 			<string>QuickTime media</string>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Alternate</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.mediadevkit.fileformat.mov</string>
+				<string>com.apple.quicktime-movie</string>
+			</array>
 			<key>LSTypeIsPackage</key>
 			<false/>
-			<key>NSPersistentStoreTypeKey</key>
-			<string>XML</string>
 		</dict>
 		<dict>
 			<key>CFBundleTypeExtensions</key>
@@ -370,10 +461,14 @@
 			<string>Free Lossless Audio Codec (FLAC) audio</string>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.mediadevkit.fileformat.flac</string>
+			</array>
 			<key>LSTypeIsPackage</key>
 			<false/>
-			<key>NSPersistentStoreTypeKey</key>
-			<string>XML</string>
 		</dict>
 		<dict>
 			<key>CFBundleTypeExtensions</key>
@@ -387,10 +482,17 @@
 			<string>MPEG video</string>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.mediadevkit.fileformat.mpeg</string>
+				<string>com.mediadevkit.fileformat.mpg</string>
+				<string>public.mpeg</string>
+				<string>public.mpeg-2-video</string>
+			</array>
 			<key>LSTypeIsPackage</key>
 			<false/>
-			<key>NSPersistentStoreTypeKey</key>
-			<string>XML</string>
 		</dict>
 		<dict>
 			<key>CFBundleTypeExtensions</key>
@@ -405,10 +507,17 @@
 			<string>MPEG-4 video</string>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Alternate</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.mediadevkit.fileformat.mp4</string>
+				<string>com.mediadevkit.fileformat.m4v</string>
+				<string>public.mpeg-4</string>
+				<string>com.apple.m4v-video</string>
+			</array>
 			<key>LSTypeIsPackage</key>
 			<false/>
-			<key>NSPersistentStoreTypeKey</key>
-			<string>XML</string>
 		</dict>
 		<dict>
 			<key>CFBundleTypeExtensions</key>
@@ -432,10 +541,28 @@
 			<string>Video file</string>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.mediadevkit.fileformat.divx</string>
+				<string>com.mediadevkit.fileformat.vob</string>
+				<string>com.mediadevkit.fileformat.mxf</string>
+				<string>com.mediadevkit.fileformat.dv-movie</string>
+				<string>com.mediadevkit.fileformat.bik</string>
+				<string>com.mediadevkit.fileformat.mod</string>
+				<string>com.mediadevkit.fileformat.wtv</string>
+				<string>com.mediadevkit.fileformat.dnxhd</string>
+				<string>com.mediadevkit.fileformat.h263</string>
+				<string>com.mediadevkit.fileformat.h264</string>
+				<string>com.mediadevkit.fileformat.hevc</string>
+				<string>org.smpte.mxf</string>
+				<string>public.dv-movie</string>
+				<string>public.audiovisual-content</string>
+				<string>public.movie</string>
+			</array>
 			<key>LSTypeIsPackage</key>
 			<false/>
-			<key>NSPersistentStoreTypeKey</key>
-			<string>XML</string>
 		</dict>
 		<dict>
 			<key>CFBundleTypeExtensions</key>
@@ -462,10 +589,23 @@
 			<string>Audio file</string>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.mediadevkit.fileformat.ac3</string>
+				<string>com.mediadevkit.fileformat.aiff</string>
+				<string>com.mediadevkit.fileformat.ape</string>
+				<string>com.mediadevkit.fileformat.dts</string>
+				<string>com.mediadevkit.fileformat.dts-hd</string>
+				<string>com.mediadevkit.fileformat.mp2</string>
+				<string>com.mediadevkit.fileformat.3gpp.amr</string>
+				<string>com.mediadevkit.fileformat.3gpp.amrnb</string>
+				<string>com.mediadevkit.fileformat.3gpp.amrwb</string>
+				<string>public.audio</string>
+			</array>
 			<key>LSTypeIsPackage</key>
 			<false/>
-			<key>NSPersistentStoreTypeKey</key>
-			<string>XML</string>
 		</dict>
 		<dict>
 			<key>CFBundleTypeExtensions</key>
@@ -480,10 +620,14 @@
 			<string>Playlist</string>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>public.m3u-playlist</string>
+			</array>
 			<key>LSTypeIsPackage</key>
 			<false/>
-			<key>NSPersistentStoreTypeKey</key>
-			<string>XML</string>
 		</dict>
 	</array>
 	<key>UTExportedTypeDeclarations</key>
@@ -673,7 +817,7 @@
 				</array>
 				<key>public.mime-type</key>
 				<array>
-					<string>audio/x-ms-wmv</string>
+					<string>video/x-ms-wmv</string>
 				</array>
 			</dict>
 		</dict>
@@ -2144,6 +2288,8 @@
 			<array>
 				<string>public.video</string>
 			</array>
+			<key>UTTypeDescription</key>
+			<string>Nikon N-RAW Video</string>
 			<key>UTTypeIdentifier</key>
 			<string>com.mediadevkit.fileformat.nraw</string>
 			<key>UTTypeTagSpecification</key>
